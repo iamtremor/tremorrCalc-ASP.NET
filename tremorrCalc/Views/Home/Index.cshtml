@@ -1,0 +1,62 @@
+﻿@model tremorrCalc.Models.calc
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+<style>
+   *
+   {
+       margin 0;
+       padding 0;
+       box-sizing: border-box;
+       font-family: Montserrat;
+       font-weight: 300;
+   }
+   .asdf
+   {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       gap: 5px;
+       flex-direction: column;
+   }
+   .operator
+   {
+       min-width: 10px;
+       gap: 13px;
+       align-items: center;
+       justify-content: center;
+       display: flex !important; 
+       flex-direction: row;
+   }
+   
+   input::-webkit-outer-spin-button, /*To remove the arrows in the input selector*/
+   input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+   input
+   {
+       width: 10rem;
+   }
+</style>
+<form asp-action="Index">
+<div class="text-center">
+    <h1 style="text-align: center;">Tremorr's Basic Calculator</h1>
+    <div class="container">
+        <div class="asdf">
+            <label>First Number</label>
+            <input type="number" asp-for="number1" />
+            <label>Second Number</label>
+            <input type="number" asp-for="number2" />
+            <div class="operator">
+                <input type="submit" value="+" asp-for="calculate"/>
+                <input type="submit" value="-" asp-for="calculate"/>
+                <input type="submit" value="*" asp-for="calculate"/>
+                <input type="submit" value="^" asp-for="calculate"/>
+                <input type="submit" value="||" asp-for="calculate"/>
+            </div>
+            
+            <label>Result</label>
+            <input type="number" asp-for="@ViewData["result"]"/>
+        </div>
+</div>
+</form>
